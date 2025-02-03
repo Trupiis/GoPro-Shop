@@ -16,10 +16,10 @@ function Navbar () {
 		<h1 className="text-4xl font-extralight">GoPro</h1>
 
 		<ul className="hidden gap-10 md:flex">
-            <Link href="/" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-200 ease-in" >INICIO</Link>
-            <Link href="/product" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-200 ease-in" >CATALOGO</Link>
-            <Link href="/contact" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-200 ease-in" >CONTACTO</Link>
-            <Link href="/login" className="text-lg flex gap-3 hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-200 ease-in" >MI CUENTA
+            <Link href="/" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-150 ease-in" >INICIO</Link>
+            <Link href="/products" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-150 ease-in" >CATALOGO</Link>
+            <Link href="/contact" className="text-lg hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-150 ease-in" >CONTACTO</Link>
+            <Link href="/login" className="text-lg flex gap-3 hover:border-b-4 hover:border-[#09f] hover:animate-pulse duration-150 ease-in" >MI CUENTA
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
   				<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
 			</svg>
@@ -46,7 +46,7 @@ function Navbar () {
 
 			<li className="flex space-x-4 items-center p-4 pl-2 border-b-2">
 
-				<Link href="/product" className="text-xl" >CATALOGO</Link>
+				<Link href="/products" className="text-xl" >CATALOGO</Link>
 			</li>
 
 
