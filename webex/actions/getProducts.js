@@ -1,23 +1,35 @@
 
 async function getProducts(categoria) {
   try {
-    const isProduction = process.env.NODE_ENV === 'production';
-    const ApiBaseUrl = isProduction
-      ? 'http://localhost:3000/products'
-      : 'http://localhost:3000';
+    /* const isProduction = process.env.NODE_ENV === 'production';
+    const ApiBaseUrl = 'http://localhost:3000/api/products';
+ */
 
-    const url = categoria ? `${ApiBaseUrl}?category=${categoria}` : `${ApiBaseUrl}`;
+    const url = "/api/products";
 
     const response = await fetch(url);
+    console.log("Response status:", response.status);
+    console.log("Response headers:", [...response.headers]);
 
-    if (!response.ok) {
-      throw new Error('Error al obtener los productos');
+    
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("La respuesta no es JSON");
     }
 
-    const { payload: products } = await response.json();
+
+    const data = await response.json();
+    console.log("Response JSON:", data);
+
+if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`Error en la API: ${response.status} - ${errorText}`);
+      throw new Error(`Error al obtener productos: ${response.status}`);
+    }
 
     return {
-      payload: products,
+      payload: data.payload, // Asegúrate de pasar el contenido correcto
       message: 'Se obtuvieron los productos',
       error: false,
     };
@@ -30,6 +42,8 @@ async function getProducts(categoria) {
       error: true,
     };
   }
+
+
 }
 
 export default getProducts;

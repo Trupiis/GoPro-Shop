@@ -1,6 +1,12 @@
+"use client"
+import { AuthContext } from "@/provider/AuthProvider";
+import { useContext } from "react";
 
 function Login() {
-    return (
+
+	const {loggedIn, HandleLogin, HandleLogout} = useContext(AuthContext)
+
+	return (
         <div className="pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5] p-20">
         <div className="bg-[#1313133a] shadow-2xl text-white w-full max-w-md mx-auto p-8 space-y-3 rounded-xl justify-center">
 
@@ -17,7 +23,9 @@ function Login() {
 				<a rel="noopener noreferrer" href="#">Olvidaste tu contraseña?</a>
 			</div>
 		</div>
-		<button className="block w-2/4 p-3 text-center bg-[#09f] rounded-2xl mx-auto">Iniciar Sesión</button>
+
+		<button className="block w-2/4 p-3 text-center bg-[#09f] rounded-2xl mx-auto" onClick={HandleLogin}>Iniciar Sesión</button>
+
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>

@@ -1,20 +1,30 @@
-// app/products/page.js
-import { notFound } from 'next/navigation';
-import ItemListContainer from '../components/ItemListContainer';
-import getProducts from '@/actions/getProducts';
+"use client"
 
-export default async function ProductPage({ params }) {
-  const { product } = params;
-  const { payload: products, error } = await getProducts(product);
+import { useEffect, useState } from "react";
+import getProducts from "@/actions/getProducts";
+import CardProduct from "../components/CardProduct";
+import ItemList from "../components/ItemList";
 
-  if (error || !products) {
-    notFound();
-  }
+function ProductsPage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getProducts();
+      setProducts(data.payload);
+    }
+    fetchData();
+  }, []);
 
   return (
-    <div className="min-h-screen">
-      <h1 className="text-2xl font-bold text-center capitalize">{product}</h1>
-      <ItemListContainer camProducts={product} />
+    <div className="pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5] p-20">
+      {products.length > 0 ? (
+        <ItemList productos={products}/>
+      ) : (
+        <p>No hay productos disponibles</p>
+      )}
     </div>
   );
 }
+
+export default ProductsPage;

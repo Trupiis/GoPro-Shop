@@ -1,15 +1,17 @@
 import CardProduct from "./CardProduct";
 
 function ItemList ({productos = []}){
-    const productosEnOferta = productos.filter(product => product.enOferta);
+    productos.forEach((product) => {
+        console.log("Product ID:", product.id);  // Verifica si los IDs son únicos y válidos
+      });
 
     return(
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productosEnOferta.length > 0 ? (
-                productosEnOferta.map((product) => <CardProduct key={product.id} {...product} />)
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {productos.length > 0 ? (
+                productos.map((product) => <CardProduct key={product.sku || product.id} {...product} /> )
             ) : (
                 <p>
-                    No hay productos en oferta!
+                    No hay productos disponibles!
                 </p>)}
         </div>
     );
