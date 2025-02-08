@@ -1,9 +1,6 @@
 
 async function getProducts(categoria) {
   try {
-    /* const isProduction = process.env.NODE_ENV === 'production';
-    const ApiBaseUrl = 'http://localhost:3000/api/products';
- */
 
     const url = "/api/products";
 

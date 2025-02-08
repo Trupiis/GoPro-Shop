@@ -1,30 +1,71 @@
 "use client"
 import { AuthContext } from "@/provider/AuthProvider";
-import { useContext } from "react";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 
 function Login() {
 
-	const {loggedIn, HandleLogin, HandleLogout} = useContext(AuthContext)
 
+/* 	const {currentUser, loggedIn, HandleLogin, HandleLogout} = useContext(AuthContext)
+ */
+
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
+	const {HandleLogin, loggedIn} = useContext(AuthContext)
+	const [errorMessage, setErrorMessage] = useState(""); 
+	const router = useRouter();
+
+	useEffect(()=>{
+		if(loggedIn){
+		router.push("/")
+	}
+	}, [loggedIn], router)
+
+	const metodos = {
+		"email" : setEmail,
+		"password" : setPassword
+	}
+
+	const HandleSubmit = async (e) =>{
+		e.preventDefault();
+		const result = await HandleLogin(email, password)
+
+		if(!result.success){
+			setErrorMessage(result.message)
+		}
+	}
+
+	const HandleChange = (e) =>{
+		const {name, value} = e.target;
+			if(metodos[name]){
+				metodos[name](value);
+			}
+	}
+	
 	return (
         <div className="pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5] p-20">
         <div className="bg-[#1313133a] shadow-2xl text-white w-full max-w-md mx-auto p-8 space-y-3 rounded-xl justify-center">
 
 	        <h1 className="text-2xl font-bold text-center">Iniciar sesión</h1>
-	        <form noValidate="" action="" className="space-y-6">
+
+			{errorMessage && (
+                    <p className="text-red-500 text-center">{errorMessage}</p>
+                )}
+
+	        <form noValidate="" action="" className="space-y-6" onSubmit={HandleSubmit}>
 		<div className="space-y-1 text-sm">
 			<label htmlFor="username" className="bloc">Usuario</label>
-			<input type="text" name="username" id="username" placeholder="Nombre de usuario" className="w-full px-4 py-3 rounded-md " />
+			<input type="text" name="email" id="email" placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-md text-black" onChange={HandleChange}/>
 		</div>
 		<div className="space-y-1 text-sm">
 			<label htmlFor="Contraseña" className="block">Contraseña</label>
-			<input type="password" name="password" id="password" placeholder="Contraseña" className="w-full px-4 py-3 rounded-md " />
+			<input type="password" name="password" id="password" placeholder="Contraseña" className="w-full px-4 py-3 rounded-md text-black" onChange={HandleChange}/>
 			<div className="flex justify-end text-xs pt-4">
 				<a rel="noopener noreferrer" href="#">Olvidaste tu contraseña?</a>
 			</div>
 		</div>
 
-		<button className="block w-2/4 p-3 text-center bg-[#09f] rounded-2xl mx-auto" onClick={HandleLogin}>Iniciar Sesión</button>
+		<button className="block w-2/4 p-3 text-center bg-[#09f] rounded-2xl mx-auto">Iniciar Sesión</button>
 
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
