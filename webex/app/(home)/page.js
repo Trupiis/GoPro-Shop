@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import CardProduct from "../components/CardProduct";
 const Home = () => {
     return(
-        <div className="pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5]">
+        <div className="md:pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5]">
                                 {/* TITULO */}
             <div className="flex flex-col">
                 <Title children={"GoPro"}/>
@@ -11,9 +11,9 @@ const Home = () => {
             </div>
 
                                 {/* HERO13 */}
-            <div className="ml-20 mt-28 flex text-white max-md:flex-col">
+            <div className="max-sm:m-16 md:ml-20 mt-28  flex text-white max-md:flex-col">
                 <img src="https://static.gopro.com/assets/blta2b8522e5372af40/bltf83a6ab7df7c2ec6/66a7ddf2c3ff6a30f409bfac/04-1-clp-featured-H13-1920-1280-png.png" className="w-96 drop-shadow-2xl"></img>
-                <div className="mt-10 ml-10">
+                <div className="max-sm:mt-20 md:mt-10 md:ml-10">
                     <span className="text-5xl font-bold"> HERO13  Black</span>
 
                     <p className="mt-5"> GoPro Hero 13 Black, es la mejor elección para capturar todas tus aventuras
@@ -23,10 +23,10 @@ const Home = () => {
                 </div>
             </div>
 
-                            {/* VENTANAS */}
+                            {/* VENTANA */}
 
             <div className="flex gap-5">
-            <div className="relative overflow-hidden mt-44 m-20 shadow-2xl w-full h-96 rounded-3xl">
+            <div className="relative overflow-hidden mt-44 m-20 shadow-2xl w-full h-96 rounded-3xl max-md:h-auto">
                 <img src="https://shop.rodrifle.com.au/cdn/shop/files/pdp-helmet-mount-image07-1920-2x.webp?v=1704859641&width=1200">
                 </img>
                 
