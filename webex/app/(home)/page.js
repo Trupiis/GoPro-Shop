@@ -1,6 +1,7 @@
 "use client"
 import Title from "../components/Title";
 import CardProduct from "../components/CardProduct";
+import { getAllProducts } from "@/actions/getAllProducts";
 const Home = () => {
     return(
         <div className="md:pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5]">
