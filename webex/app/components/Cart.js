@@ -1,4 +1,13 @@
+"use client"
+import { useCart } from "@/context/CartContext";
+
 function Cart ({isCartOpen, toggleCart, className}) {
+
+    const { items } = useCart()
+
+    console.log("Estado del carrito en Cart:", items);
+
+
     return(
         <div className={className}>
             <button className="border-2 border-[#09f] rounded-full p-2" onClick={toggleCart}>
@@ -21,6 +30,8 @@ function Cart ({isCartOpen, toggleCart, className}) {
 			</button>
 
                 <h2 className="text-white p-4">Carrito de Compras</h2>
+
+                
             </div>
 
         </div>

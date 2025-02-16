@@ -1,8 +1,9 @@
 "use client"
 import Title from "../components/Title";
-import CardProduct from "../components/CardProduct";
-import { getAllProducts } from "@/actions/getAllProducts";
+import { useRouter } from "next/navigation";
 const Home = () => {
+    const router = useRouter();
+
     return(
         <div className="md:pb-20 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5]">
                                 {/* TITULO */}
@@ -20,7 +21,7 @@ const Home = () => {
                     <p className="mt-5"> GoPro Hero 13 Black, es la mejor elección para capturar todas tus aventuras
                     </p>
 
-                    <button className="w-28 bg-[#131313] p-2 rounded-3xl mt-10">Ver más</button>
+                    <button className="w-28 bg-[#131313] p-2 rounded-3xl mt-10" onClick={()=> router.push(`/products/131`)}>Ver más</button>
                 </div>
             </div>
 
@@ -33,7 +34,7 @@ const Home = () => {
                 
                 <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
-                <button className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 bg-[#f0f0f0] p-2 rounded-3xl">Ver más</button>
+                <button className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 bg-[#f0f0f0] p-2 rounded-3xl" onClick={()=> router.push(`/products`)}>Ver más</button>
             </div>
             </div>
         </div>
