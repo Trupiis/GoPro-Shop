@@ -14,7 +14,7 @@ const ProductDetailClient = ({product}) =>{
 
     
     return(
-        <div className="p-20 pt-10 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5] flex justify-center gap-5 flex-col">
+        <div className="p-20  pt-10 min-h-screen bg-gradient-to-br from-[#260d30] to-[#0076c5] flex justify-center gap-5 flex-col">
 
         <div className="flex">
             <button className="flex gap-2" onClick={()=> router.push(`/products`)}> 

@@ -28,8 +28,8 @@ const Home = () => {
                             {/* VENTANA */}
 
             <div className="flex gap-5">
-            <div className="relative overflow-hidden mt-44 m-20 shadow-2xl w-full h-96 rounded-3xl max-md:h-auto">
-                <img src="https://shop.rodrifle.com.au/cdn/shop/files/pdp-helmet-mount-image07-1920-2x.webp?v=1704859641&width=1200">
+            <div className="relative overflow-hidden mt-44 m-20 shadow-2xl w-full h-96 rounded-3xl max-lg:h-auto">
+                <img className="w-full" src="https://shop.rodrifle.com.au/cdn/shop/files/pdp-helmet-mount-image07-1920-2x.webp?v=1704859641&width=1200">
                 </img>
                 
                 <div className="absolute inset-0 bg-black bg-opacity-70"></div>
